@@ -156,15 +156,15 @@ git ls-remote origin refs/heads/main
 
 ## 任务 5：发布 1.1.6 GitHub Release
 
-**标签：** `v1.1.6`。**附件：** `release/商品图工作台-1.1.6-arm64-mac.zip`，仅供 Apple Silicon、macOS 14+ 使用。
+**标签：** `v1.1.6`。**附件：** `ProductImageWorkbench-1.1.6-mac-arm64.zip`，仅供 Apple Silicon、macOS 14+ 使用。公开链接：[商品图工作台 1.1.6 Release](https://github.com/Banye0517/product-image-workbench/releases/tag/v1.1.6)。
 
-- [ ] **步骤 1：检查发布包**
+- [x] **步骤 1：检查发布包**
 
-运行 `unzip -t` 检查压缩包完整性，并记录 SHA-256。确认包内版本为 1.1.6；发布说明标明这是未签名、未公证的 macOS 包，图形界面独立启动验收未完成；本次不附 Windows 安装包。
+`unzip -t` 检查通过。包内版本为 1.1.6；SHA-256 为 `b3b33be08e513f3218a160717bf17e09fc34f5815dc76f20d62a1a2dec68cd9e`。发布说明标明未签名、未公证、图形界面独立启动验收未完成，本次不附 Windows 安装包。
 
-- [ ] **步骤 2：创建并核验 Release**
+- [x] **步骤 2：创建并核验 Release**
 
-将 `v1.1.6` Release 指向公开 `main`，附上 Mac zip。确认 Release 可公开访问、标签及附件名称正确、附件可下载。
+`v1.1.6` Release 已公开，附件上传完成且 GitHub SHA-256 与本地一致。首次上传的中文文件名被 GitHub 去掉汉字，已删除该错误附件并改用 ASCII 文件名及中文显示标签。
 
 ## 计划自检
 
