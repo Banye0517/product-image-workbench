@@ -128,9 +128,9 @@ rg -n '1\.0\.0-arm64|Windows 1\.1\.[234]|macOS 26|750×1200|旧750缓存' README
 
 公开快照包含源代码、设计/计划文档、Mac 构建配置和二进制、README、使用说明、Windows 说明、`.gitignore`、Mac 配置测试、用户批准的品牌/图标/抠图测试素材。排除 12 张未批准图片、`MEMORY.md`、`docs/验收记录.md`，并脱敏两份抠图测试日志中的本机路径。确认模型权重、VC++ 安装器、`node_modules`、`dist`、`release` ZIP 与本机数据目录不进入公开树或历史。主图双尺寸同步源码包含在快照中。
 
-- [ ] **步骤 2：提交本次文件**
+- [x] **步骤 2：提交本次文件**
 
-将 1.1.6 版本号、设计说明与计划同步到筛选后的公开工作树，运行 `git diff --cached --check` 和 `git status --short` 后创建更新提交。不得从包含未批准素材历史的开发分支推送。
+将 1.1.6 版本号、设计说明与计划同步到筛选后的公开工作树，运行 `git diff --cached --check` 和 `git status --short` 后创建更新提交 `96213ff`。不得从包含未批准素材历史的开发分支推送。
 
 ```bash
 git commit -m "chore: publish 1.1.6 macOS package metadata"
@@ -142,10 +142,12 @@ git commit -m "chore: publish 1.1.6 macOS package metadata"
 
 不添加许可证、不上传 ZIP、不创建 GitHub Release。公开 `main` 从筛选后的文件树创建为新的初始提交，不上传本机历史。
 
-- [ ] **步骤 4：推送并核验远程**
+- [x] **步骤 4：推送并核验远程**
+
+已将更新提交推送到 `main`，并核实仓库为公开。公开历史从筛选快照的单一根提交开始，不含未批准产品照片与界面截图。
 
 ```bash
-git push -u origin public-snapshot:main
+git push origin main
 gh repo view Banye0517/product-image-workbench --json nameWithOwner,visibility,url
 git ls-remote origin refs/heads/main
 ```
