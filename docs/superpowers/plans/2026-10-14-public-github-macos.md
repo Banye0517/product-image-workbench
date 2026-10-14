@@ -1,8 +1,8 @@
 # 商品图工作台 Mac 版与公开仓库实施计划
 
-> 执行方式：在当前会话逐项实施。设计批准后，主图双尺寸单向同步已由作者提交为 `6c5173a`，并已纳入 1.1.5 Mac 包。用户选择排除 12 张额外产品示例图和界面截图；GitHub 将从筛选后的当前源码快照创建无父提交的公开 `main`，本机历史保持不变。
+> 执行方式：在当前会话逐项实施。设计批准后，主图双尺寸单向同步已由作者提交为 `6c5173a`。作者随后将版本改为 1.1.6；本次 Mac 包与公开快照均使用该版本。用户选择排除 12 张额外产品示例图和界面截图；GitHub 将从筛选后的当前源码快照创建无父提交的公开 `main`，本机历史保持不变。
 
-**目标：** 整理工作台说明，构建最低系统版本为 macOS 14 的 Apple Silicon 1.1.5 Mac 包，并把本次批准的源码和文档推送到公开 GitHub 仓库。
+**目标：** 整理工作台说明，构建最低系统版本为 macOS 14 的 Apple Silicon 1.1.6 Mac 包，并把本次批准的源码和文档推送到公开 GitHub 仓库。
 
 **架构：** Windows 与 Mac 继续共享 React/Electron 工作台及本地数据层，Windows 使用 Silueta ONNX，macOS 使用 Swift/Apple Vision。Mac 打包前从 Swift 源码构建 arm64 辅助程序并写入 macOS 14 部署目标。
 
@@ -98,15 +98,15 @@ rg -n '1\.0\.0-arm64|Windows 1\.1\.[234]|macOS 26|750×1200|旧750缓存' README
 
 ## 任务 3：测试、打包和 Mac 本机验收
 
-**产物：** `release/商品图工作台-1.1.5-arm64-mac.zip`。
+**产物：** `release/商品图工作台-1.1.6-arm64-mac.zip`。
 
 - [x] **步骤 1：运行检查**
 
-运行 `npm test`、`npm run check`、`npm run build`。预期全部通过；不覆盖工作区原有未提交主图双尺寸改动。
+运行 `npm test`、`npm run check`、`npm run build`。预期全部通过；主图双尺寸单向同步已由作者提交，并包含在当前源码中。
 
 - [x] **步骤 2：生成 Mac zip**
 
-运行 `npm run package:mac`。预期得到版本 1.1.5 的 Apple Silicon 包。
+运行 `npm run package:mac`。预期得到版本 1.1.6 的 Apple Silicon 包。
 
 - [x] **步骤 3：核对包内元数据**
 
@@ -122,7 +122,7 @@ rg -n '1\.0\.0-arm64|Windows 1\.1\.[234]|macOS 26|750×1200|旧750缓存' README
 
 ## 任务 4：创建公开 GitHub 仓库并推送指定提交
 
-**远程：** `https://github.com/Banye0517/product-image-workbench`；远程分支 `main`。
+**远程：** `https://github.com/Banye0517/product-image-workbench`；公开仓库与初始筛选快照已创建，远程分支 `main`。本次只从筛选后的公开工作树推送版本更新，不推送当前开发分支或其历史。
 
 - [x] **步骤 1：核对暂存清单**
 
@@ -130,18 +130,15 @@ rg -n '1\.0\.0-arm64|Windows 1\.1\.[234]|macOS 26|750×1200|旧750缓存' README
 
 - [ ] **步骤 2：提交本次文件**
 
-只暂存上述明确文件，运行 `git diff --cached --check` 和 `git status --short` 后提交：
+将 1.1.6 版本号、设计说明与计划同步到筛选后的公开工作树，运行 `git diff --cached --check` 和 `git status --short` 后创建更新提交。不得从包含未批准素材历史的开发分支推送。
 
 ```bash
-git commit -m "feat: prepare Apple Silicon macOS package and project docs"
+git commit -m "chore: publish 1.1.6 macOS package metadata"
 ```
 
-- [ ] **步骤 3：创建公开仓库并配置远程**
+- [x] **步骤 3：创建公开仓库并配置远程**
 
-```bash
-gh repo create Banye0517/product-image-workbench --public --description "Local product image workbench for e-commerce design"
-git remote add origin https://github.com/Banye0517/product-image-workbench.git
-```
+已创建并核实为公开仓库；筛选后的快照使用远程 `origin`。
 
 不添加许可证、不上传 ZIP、不创建 GitHub Release。公开 `main` 从筛选后的文件树创建为新的初始提交，不上传本机历史。
 

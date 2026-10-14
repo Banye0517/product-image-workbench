@@ -17,7 +17,7 @@
 
 保持现有共享应用和平台专用抠图实现。仅修复 Mac 原生辅助程序的构建目标、应用最低系统版本声明和打包流程；不引入新的抠图模型，不改动 Windows 引擎，不拆分为两套应用。
 
-新增可重复运行的 Mac 辅助程序编译步骤，明确以 `arm64-apple-macosx14.0` 为目标，并让 `package:mac` 在产出 zip 前执行该步骤。Electron macOS 构建元数据同步声明 macOS 14.0 最低版本。版本维持 1.1.5，产物命名继续表达版本、Apple Silicon 和 Mac 平台。
+新增可重复运行的 Mac 辅助程序编译步骤，明确以 `arm64-apple-macosx14.0` 为目标，并让 `package:mac` 在产出 zip 前执行该步骤。Electron macOS 构建元数据同步声明 macOS 14.0 最低版本。作者将 `package.json` 与锁文件更新至 1.1.6，本次 Mac 包按 1.1.6 生成。
 
 ## 文档结构
 
@@ -35,7 +35,7 @@
 
 ## 验收标准
 
-1. `npm run package:mac` 会从已跟踪的 Swift 源码重新构建抠图程序，再生成版本 1.1.5 的 Apple Silicon Mac zip。
+1. `npm run package:mac` 会从已跟踪的 Swift 源码重新构建抠图程序，再生成版本 1.1.6 的 Apple Silicon Mac zip。
 2. Mac 应用包的原生辅助程序最低系统版本为 macOS 14.0，应用元数据与使用说明相符；Vision 抠图结果为带 alpha 的 PNG。当前同名应用已在本机运行，单实例锁阻止独立包启动，GUI 包启动验收未完成。
 3. README 和使用说明准确区分 Windows Silueta 与 macOS Vision，并从项目现有实现提炼用途、功能、流程和限制。
 4. 运行 `npm test`、`npm run check`、`npm run build` 通过。Mac 包结构及二进制架构、最低系统版本和透明输出经过本机核对。
