@@ -1,0 +1,6 @@
+{"model": "u2netp", "cached_model_load_seconds": 0.026}
+{"model": "u2netp", "image": "top", "read_resize_cutout_save_seconds": [0.123, 0.129, 0.099]}
+{"model": "u2netp", "image": "pants", "read_resize_cutout_save_seconds": [0.241, 0.222, 0.216]}
+{"model": "silueta", "cached_model_load_seconds": 0.067}
+{"model": "silueta", "image": "top", "read_resize_cutout_save_seconds": [0.291, 0.284, 0.279]}
+{"model": "silueta", "image": "pants", "read_resize_cutout_save_seconds": [0.395, 0.395, 0.401]}

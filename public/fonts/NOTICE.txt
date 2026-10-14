@@ -1,0 +1,3 @@
+Source Han Sans CN Bold
+Copyright © 2014 Adobe Systems Incorporated
+Licensed under the Apache License, Version 2.0. See LICENSE-SourceHanSansCN.txt.
