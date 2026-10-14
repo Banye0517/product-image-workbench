@@ -21,7 +21,7 @@
 
 ## 使用
 
-本仓库提供源码和说明，不托管预编译安装包。Mac 用户可按下方命令自行构建；Windows x64 发布包需从单独分发的 ZIP 获取。详细的导入、编辑、抠图和导出步骤见[使用说明](使用说明.md)。macOS 首次打开可能显示安全提示；只对本应用按 Apple 的说明处理：[在 Mac 上安全地打开应用](https://support.apple.com/en-hk/102445)。
+源码和说明保存在本仓库。Apple Silicon、macOS 14 或更新版本的预编译包见[GitHub Releases](https://github.com/Banye0517/product-image-workbench/releases/latest)；当前 Mac 包未签名或公证。Windows x64 发布包需从单独分发的 ZIP 获取，且本仓库不附 Silueta 模型权重。详细的导入、编辑、抠图和导出步骤见[使用说明](使用说明.md)。macOS 首次打开可能显示安全提示；只对本应用按 Apple 的说明处理：[在 Mac 上安全地打开应用](https://support.apple.com/en-hk/102445)。
 
 ## 本机数据与边界
 

@@ -140,7 +140,7 @@ git commit -m "chore: publish 1.1.6 macOS package metadata"
 
 已创建并核实为公开仓库；筛选后的快照使用远程 `origin`。
 
-不添加许可证、不上传 ZIP、不创建 GitHub Release。公开 `main` 从筛选后的文件树创建为新的初始提交，不上传本机历史。
+首次建仓只上传源码，不含预编译包；仓库不添加许可证。用户随后授权发布当前 1.1.6 版本，并将 Apple Silicon Mac zip 作为 GitHub Release 附件。
 
 - [x] **步骤 4：推送并核验远程**
 
@@ -153,6 +153,18 @@ git ls-remote origin refs/heads/main
 ```
 
 预期：远程可访问且为 `PUBLIC`；远程 `main` 的单一根提交包含当前批准的源码、文档和资源，不含原始父提交、未批准素材或私人记录。
+
+## 任务 5：发布 1.1.6 GitHub Release
+
+**标签：** `v1.1.6`。**附件：** `release/商品图工作台-1.1.6-arm64-mac.zip`，仅供 Apple Silicon、macOS 14+ 使用。
+
+- [ ] **步骤 1：检查发布包**
+
+运行 `unzip -t` 检查压缩包完整性，并记录 SHA-256。确认包内版本为 1.1.6；发布说明标明这是未签名、未公证的 macOS 包，图形界面独立启动验收未完成；本次不附 Windows 安装包。
+
+- [ ] **步骤 2：创建并核验 Release**
+
+将 `v1.1.6` Release 指向公开 `main`，附上 Mac zip。确认 Release 可公开访问、标签及附件名称正确、附件可下载。
 
 ## 计划自检
 
